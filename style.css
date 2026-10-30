@@ -1,0 +1,1333 @@
+/* =========================================================
+   🎀 DESAFIO DO MILHÃO
+   ROSA + BAUNILHA + HELLO KITTY
+   ========================================================= */
+
+   * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --rosa-escuro: #b83272;
+    --rosa: #e879ad;
+    --rosa-claro: #ffc9df;
+    --rosa-pastel: #ffe5f0;
+    --baunilha: #fff5dc;
+    --branco: #fffdf9;
+    --texto: #68354d;
+    --verde: #72c49b;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        "Trebuchet MS",
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--texto);
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(255,255,255,.95),
+            transparent 18%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(255,180,215,.6),
+            transparent 25%
+        ),
+        linear-gradient(
+            135deg,
+            #fff7e6,
+            #ffe8f1 35%,
+            #ffc7df 70%,
+            #e98bb8
+        );
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 25px;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   DECORAÇÕES
+   ========================================================= */
+
+.decor {
+    position: fixed;
+
+    color: rgba(190, 55, 115, .35);
+
+    pointer-events: none;
+
+    z-index: 0;
+
+    animation:
+        flutuar 5s ease-in-out infinite,
+        brilho 2s ease-in-out infinite alternate;
+}
+
+.decor-1 {
+    top: 8%;
+    left: 8%;
+    font-size: 45px;
+}
+
+.decor-2 {
+    top: 18%;
+    right: 10%;
+    font-size: 30px;
+    animation-delay: .8s;
+}
+
+.decor-3 {
+    bottom: 15%;
+    left: 10%;
+    font-size: 60px;
+    animation-delay: 1.2s;
+}
+
+.decor-4 {
+    bottom: 10%;
+    right: 8%;
+    font-size: 35px;
+    animation-delay: 2s;
+}
+
+.decor-5 {
+    top: 45%;
+    left: 3%;
+    font-size: 25px;
+}
+
+.decor-6 {
+    top: 50%;
+    right: 4%;
+    font-size: 50px;
+    animation-delay: 1.5s;
+}
+
+.kitty {
+    position: fixed;
+
+    z-index: 0;
+
+    font-size: 55px;
+
+    animation: kittyFloat 4s ease-in-out infinite;
+}
+
+.kitty-1 {
+    top: 5%;
+    right: 20%;
+}
+
+.kitty-2 {
+    bottom: 5%;
+    left: 18%;
+
+    animation-delay: 1.5s;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.quiz-container {
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+    max-width: 900px;
+
+    padding: 35px;
+
+    border-radius: 38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.94),
+            rgba(255,245,225,.92)
+        );
+
+    border: 3px solid rgba(255,255,255,.9);
+
+    box-shadow:
+        0 30px 80px rgba(155,55,105,.25),
+        inset 0 1px 0 white;
+
+    backdrop-filter: blur(15px);
+
+    animation: aparecer .8s ease;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.header {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 25px;
+
+    text-align: center;
+}
+
+.header h1 {
+    font-size: clamp(30px, 5vw, 50px);
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(
+            90deg,
+            #a92e69,
+            #ef72a9,
+            #d83c87,
+            #a82d69
+        );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation: gradientMove 4s linear infinite;
+}
+
+.subtitle {
+    margin-top: 7px;
+
+    color: #a84c76;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   HELLO KITTY
+   ========================================================= */
+
+.kitty-logo {
+    width: 100px;
+    height: 90px;
+}
+
+.kitty-face {
+    position: relative;
+
+    width: 90px;
+    height: 72px;
+
+    background: white;
+
+    border: 3px solid #333;
+
+    border-radius:
+        48% 48%
+        45% 45%
+        / 55% 55%
+        45% 45%;
+
+    box-shadow:
+        0 7px 15px rgba(0,0,0,.12);
+
+    transform: rotate(-2deg);
+}
+
+.ear {
+    position: absolute;
+
+    width: 27px;
+    height: 27px;
+
+    background: white;
+
+    border: 3px solid #333;
+
+    top: -14px;
+}
+
+.ear.left {
+    left: 4px;
+
+    transform: rotate(-35deg);
+
+    border-radius: 5px 25px 5px 5px;
+}
+
+.ear.right {
+    right: 4px;
+
+    transform: rotate(35deg);
+
+    border-radius: 25px 5px 5px 5px;
+}
+
+.eye {
+    position: absolute;
+
+    width: 7px;
+    height: 11px;
+
+    background: #222;
+
+    border-radius: 50%;
+
+    top: 31px;
+}
+
+.left-eye {
+    left: 25px;
+}
+
+.right-eye {
+    right: 25px;
+}
+
+.nose {
+    position: absolute;
+
+    width: 9px;
+    height: 7px;
+
+    background: #e5ae32;
+
+    border-radius: 50%;
+
+    top: 43px;
+    left: 39px;
+}
+
+.whisker {
+    position: absolute;
+
+    width: 20px;
+    height: 2px;
+
+    background: #333;
+
+    top: 40px;
+}
+
+.w1 {
+    left: 3px;
+    transform: rotate(10deg);
+}
+
+.w2 {
+    left: 3px;
+    top: 47px;
+}
+
+.w3 {
+    left: 3px;
+    top: 54px;
+    transform: rotate(-10deg);
+}
+
+.w4 {
+    right: 3px;
+    transform: rotate(-10deg);
+}
+
+.w5 {
+    right: 3px;
+    top: 47px;
+}
+
+.w6 {
+    right: 3px;
+    top: 54px;
+    transform: rotate(10deg);
+}
+
+.bow {
+    position: absolute;
+
+    right: -12px;
+    top: -12px;
+
+    font-size: 32px;
+
+    animation: bowPulse 1.5s infinite alternate;
+}
+
+
+/* =========================================================
+   TELAS
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+.tela {
+    animation: telaEntrada .5s ease;
+}
+
+
+/* =========================================================
+   TELA INICIAL
+   ========================================================= */
+
+.welcome-card,
+.final-card,
+.ranking-card {
+    text-align: center;
+
+    padding: 35px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffdf8,
+            #fff0f6
+        );
+
+    border: 2px solid #f3cadb;
+
+    box-shadow:
+        0 15px 35px rgba(180,70,120,.12);
+}
+
+.big-kitty {
+    font-size: 75px;
+
+    animation:
+        kittyFloat 2.5s ease-in-out infinite;
+}
+
+.welcome-card h2,
+.final-card h2,
+.ranking-card h2 {
+    color: #a6316c;
+
+    font-size: 30px;
+
+    margin: 10px 0 15px;
+}
+
+.welcome-card p {
+    margin: 10px auto;
+
+    line-height: 1.6;
+
+    max-width: 600px;
+}
+
+.small-text {
+    color: #a66a82;
+
+    font-size: 14px;
+}
+
+#nome-jogador {
+    display: block;
+
+    width: 100%;
+    max-width: 450px;
+
+    margin: 25px auto 12px;
+
+    padding: 17px 20px;
+
+    border-radius: 17px;
+
+    border: 2px solid #efb3cd;
+
+    outline: none;
+
+    background: #fffaf0;
+
+    color: #71334f;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    transition: .25s;
+}
+
+#nome-jogador:focus {
+    border-color: #d95b91;
+
+    box-shadow:
+        0 0 0 5px rgba(226,91,145,.12);
+}
+
+
+/* =========================================================
+   BOTÕES
+   ========================================================= */
+
+button {
+    font-family: inherit;
+}
+
+.main-button,
+.secondary-button,
+.clear-button {
+    width: 100%;
+
+    padding: 16px 20px;
+
+    margin-top: 12px;
+
+    border-radius: 17px;
+
+    font-weight: 900;
+
+    font-size: 16px;
+
+    cursor: pointer;
+
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        filter .2s;
+}
+
+.main-button {
+    border: none;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #bd3978,
+            #ed76ab,
+            #bd3978
+        );
+
+    background-size: 200%;
+
+    box-shadow:
+        0 10px 25px rgba(190,50,115,.28);
+
+    animation: gradientMove 3s linear infinite;
+}
+
+.secondary-button {
+    border: 2px solid #e3a0bd;
+
+    color: #8b3c62;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e7,
+            #ffddea
+        );
+}
+
+.clear-button {
+    border: 2px solid #edb1c9;
+
+    color: #a6476c;
+
+    background: #fff0f4;
+}
+
+.main-button:hover,
+.secondary-button:hover,
+.clear-button:hover {
+    transform: translateY(-3px) scale(1.01);
+
+    box-shadow:
+        0 12px 25px rgba(180,60,115,.2);
+
+    filter: brightness(1.03);
+}
+
+.main-button:active,
+.secondary-button:active,
+.clear-button:active {
+    transform: scale(.97);
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.status {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 12px;
+
+    padding: 15px 20px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff2d8,
+            #ffe2ee
+        );
+
+    border: 1px solid #edc1d2;
+
+    box-shadow:
+        0 8px 20px rgba(179,75,116,.12);
+
+    font-weight: 900;
+}
+
+#premio {
+    color: #a42f68;
+}
+
+
+/* =========================================================
+   PROGRESSO
+   ========================================================= */
+
+.progress-container {
+    width: 100%;
+
+    height: 12px;
+
+    margin-bottom: 20px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: #f5dce6;
+}
+
+#progress-bar {
+    width: 0%;
+
+    height: 100%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #bd3978,
+            #ff8cbd,
+            #bd3978
+        );
+
+    background-size: 200%;
+
+    transition: width .5s ease;
+
+    animation: gradientMove 2s linear infinite;
+}
+
+
+/* =========================================================
+   QUIZ
+   ========================================================= */
+
+.quiz-box {
+    padding: 28px;
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #fffefa,
+            #fff0f6
+        );
+
+    border: 2px solid #f3cada;
+
+    box-shadow:
+        0 15px 35px rgba(187,80,124,.12);
+
+    position: relative;
+}
+
+.quiz-box::after {
+    content: "♡ ✦ ♡";
+
+    position: absolute;
+
+    top: 10px;
+    right: 18px;
+
+    color: #e38ab0;
+
+    animation: brilho 1.8s infinite alternate;
+}
+
+.materia {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    padding: 7px 13px;
+
+    border-radius: 50px;
+
+    color: #9a3764;
+
+    background: #ffe4ef;
+
+    border: 1px solid #edb6cd;
+
+    font-weight: 900;
+
+    font-size: 13px;
+}
+
+#pergunta {
+    text-align: center;
+
+    color: #69334e;
+
+    font-size: clamp(20px, 3vw, 28px);
+
+    line-height: 1.4;
+
+    margin-bottom: 22px;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff8e9,
+            #ffe8f1
+        );
+
+    border: 2px solid #f2c4d6;
+
+    animation: perguntaEntrada .4s ease;
+}
+
+
+/* =========================================================
+   ALTERNATIVAS
+   ========================================================= */
+
+#alternativas {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.alternativas {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border: 2px solid #f1c5d8;
+
+    border-radius: 17px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fffdf8,
+            #fff0f5
+        );
+
+    color: #71334f;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    text-align: left;
+
+    transition:
+        transform .2s,
+        box-shadow .2s,
+        background .2s,
+        border .2s;
+}
+
+.alternativas:hover:not(:disabled) {
+    transform:
+        translateX(5px)
+        translateY(-2px);
+
+    border-color: #dc6c9e;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7df,
+            #ffdce9
+        );
+
+    box-shadow:
+        0 8px 20px rgba(208,83,137,.18);
+}
+
+.alternativas:active:not(:disabled) {
+    transform: scale(.98);
+}
+
+.alternativas.correta {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #83d2aa,
+            #54b888
+        );
+
+    border-color: #42a978;
+
+    animation: correta .5s ease;
+}
+
+.alternativas.errada {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f29ab7,
+            #d75b82
+        );
+
+    border-color: #bd4268;
+
+    animation: errada .4s ease;
+}
+
+.alternativas.eliminada {
+    opacity: .25;
+
+    text-decoration: line-through;
+
+    transform: scale(.96);
+}
+
+
+/* =========================================================
+   MENSAGEM
+   ========================================================= */
+
+#mensagem {
+    min-height: 30px;
+
+    margin: 18px 0;
+
+    text-align: center;
+
+    font-weight: 900;
+
+    font-size: 18px;
+
+    color: #a33d6c;
+}
+
+
+/* =========================================================
+   AJUDAS
+   ========================================================= */
+
+.ajudas {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    margin: 18px 0;
+}
+
+.ajudas button {
+    flex: 1;
+
+    min-width: 150px;
+
+    padding: 13px 15px;
+
+    border: 2px solid #e4a0bd;
+
+    border-radius: 15px;
+
+    cursor: pointer;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff7df,
+            #ffd7e7
+        );
+
+    color: #7c3155;
+
+    font-weight: 900;
+
+    transition: .2s;
+}
+
+.ajudas button:hover:not(:disabled) {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 18px rgba(190,66,119,.2);
+}
+
+.ajudas button:disabled {
+    opacity: .4;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================================
+   PRÓXIMA
+   ========================================================= */
+
+#proxima {
+    width: 100%;
+
+    padding: 17px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    color: white;
+
+    background:
+        linear-gradient(
+            90deg,
+            #c83f7c,
+            #ed76aa,
+            #c83f7c
+        );
+
+    background-size: 200%;
+
+    font-size: 17px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(192,54,116,.3);
+
+    transition: .2s;
+
+    animation: gradientMove 3s linear infinite;
+}
+
+#proxima:hover:not(:disabled) {
+    transform: translateY(-3px);
+}
+
+#proxima:disabled {
+    opacity: .4;
+
+    cursor: not-allowed;
+
+    animation: none;
+}
+
+
+/* =========================================================
+   FINAL
+   ========================================================= */
+
+.trophy {
+    font-size: 80px;
+
+    animation:
+        trophy 1.5s ease-in-out infinite;
+}
+
+.score-box {
+    margin: 25px 0;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff1d0,
+            #ffd9e8
+        );
+
+    border: 2px solid #efbdd0;
+}
+
+.score-box span,
+.score-box strong {
+    display: block;
+}
+
+.score-box span {
+    color: #9a5572;
+}
+
+.score-box strong {
+    margin-top: 8px;
+
+    color: #ad2f6c;
+
+    font-size: 32px;
+}
+
+
+/* =========================================================
+   RANKING
+   ========================================================= */
+
+.ranking-subtitle {
+    margin-bottom: 20px;
+
+    color: #9e5a77;
+}
+
+#ranking-lista {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin: 20px 0;
+}
+
+.ranking-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff8e7,
+            #ffe6f0
+        );
+
+    border: 2px solid #f0c6d8;
+
+    animation: rankingEntrada .4s ease;
+}
+
+.ranking-posicao {
+    min-width: 35px;
+
+    font-size: 22px;
+}
+
+.ranking-nome {
+    flex: 1;
+
+    text-align: left;
+
+    font-weight: 900;
+
+    color: #74344f;
+}
+
+.ranking-premio {
+    font-weight: 900;
+
+    color: #b02f6e;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #a76b85;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   CONFETES
+   ========================================================= */
+
+.confete {
+    position: fixed;
+
+    top: -30px;
+
+    z-index: 100;
+
+    pointer-events: none;
+
+    animation:
+        cair 3s linear forwards;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes telaEntrada {
+    from {
+        opacity: 0;
+        transform: scale(.96) translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes perguntaEntrada {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+}
+
+@keyframes brilho {
+    from {
+        opacity: .35;
+        transform: scale(.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes flutuar {
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+@keyframes kittyFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes bowPulse {
+    from {
+        transform: scale(.9) rotate(-5deg);
+    }
+
+    to {
+        transform: scale(1.1) rotate(5deg);
+    }
+}
+
+@keyframes correta {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.04);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes errada {
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-7px);
+    }
+
+    75% {
+        transform: translateX(7px);
+    }
+}
+
+@keyframes trophy {
+    0%, 100% {
+        transform: rotate(-5deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(5deg) scale(1.1);
+    }
+}
+
+@keyframes rankingEntrada {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes cair {
+    to {
+        transform:
+            translateY(110vh)
+            rotate(720deg);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .quiz-container {
+        padding: 18px;
+
+        border-radius: 25px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .kitty-logo {
+        transform: scale(.8);
+    }
+
+    .quiz-box,
+    .welcome-card,
+    .final-card,
+    .ranking-card {
+        padding: 18px;
+    }
+
+    .status {
+        flex-direction: column;
+
+        text-align: center;
+    }
+
+    .status span {
+        width: 100%;
+    }
+
+    .ajudas {
+        flex-direction: column;
+    }
+
+    .ajudas button {
+        width: 100%;
+    }
+
+    .ranking-item {
+        padding: 12px;
+    }
+
+    .ranking-premio {
+        font-size: 13px;
+    }
+
+    .decor {
+        opacity: .5;
+    }
+}
+
+::selection {
+    background: #e98bb8;
+    color: white;
+}

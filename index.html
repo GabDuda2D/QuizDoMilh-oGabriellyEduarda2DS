@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🎀 Desafio do Milhão</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- DECORAÇÃO -->
+    <div class="decor decor-1">♡</div>
+    <div class="decor decor-2">✦</div>
+    <div class="decor decor-3">♡</div>
+    <div class="decor decor-4">★</div>
+    <div class="decor decor-5">✧</div>
+    <div class="decor decor-6">♡</div>
+
+    <div class="kitty kitty-1">🎀</div>
+    <div class="kitty kitty-2">🎀</div>
+
+    <main class="quiz-container">
+
+        <header class="header">
+
+            <div class="kitty-logo">
+                <div class="kitty-face">
+                    <span class="ear left"></span>
+                    <span class="ear right"></span>
+                    <span class="eye left-eye"></span>
+                    <span class="eye right-eye"></span>
+                    <span class="nose"></span>
+                    <span class="whisker w1"></span>
+                    <span class="whisker w2"></span>
+                    <span class="whisker w3"></span>
+                    <span class="whisker w4"></span>
+                    <span class="whisker w5"></span>
+                    <span class="whisker w6"></span>
+                    <span class="bow">🎀</span>
+                </div>
+            </div>
+
+            <div>
+                <h1>🎀 Desafio do Milhão 🎀</h1>
+                <p class="subtitle">
+                    ✨ Quiz Escolar • 2º Ano do Ensino Médio ✨
+                </p>
+            </div>
+
+        </header>
+
+        <!-- TELA INICIAL -->
+
+        <section id="tela-inicial" class="tela">
+
+            <div class="welcome-card">
+
+                <div class="big-kitty">🎀</div>
+
+                <h2>♡ Bem-vindo(a)! ♡</h2>
+
+                <p>
+                    Teste seus conhecimentos e tente chegar ao
+                    <strong>R$ 1.000.000!</strong>
+                </p>
+
+                <p class="small-text">
+                    São mais de 30 perguntas de matérias escolares,
+                    incluindo Desenvolvimento de Sistemas.
+                </p>
+
+                <input
+                    type="text"
+                    id="nome-jogador"
+                    placeholder="Digite seu nome 💗"
+                    maxlength="20"
+                >
+
+                <button id="começar" class="main-button">
+                    🎀 COMEÇAR O QUIZ 🎀
+                </button>
+
+                <button id="ver-ranking" class="secondary-button">
+                    🏆 Ver Ranking
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUIZ -->
+
+        <section id="tela-quiz" class="tela hidden">
+
+            <div class="status">
+
+                <span id="numero-pergunta">
+                    💗 Pergunta: 1
+                </span>
+
+                <span id="premio">
+                    💰 Prêmio: R$ 0
+                </span>
+
+            </div>
+
+            <div class="progress-container">
+                <div id="progress-bar"></div>
+            </div>
+
+            <section class="quiz-box">
+
+                <div class="materia" id="materia">
+                    📚 Matemática
+                </div>
+
+                <h2 id="pergunta">
+                    Carregando pergunta...
+                </h2>
+
+                <div id="alternativas"></div>
+
+                <div id="mensagem"></div>
+
+                <!-- AJUDAS -->
+
+                <div class="ajudas">
+
+                    <button id="pular">
+                        ⏭️ Pular
+                    </button>
+
+                    <button id="dobrar">
+                        💰 Dobrar
+                    </button>
+
+                    <button id="eliminar">
+                        ❌ Eliminar 2
+                    </button>
+
+                </div>
+
+                <button id="proxima" disabled>
+                    ✨ Próxima Pergunta ✨
+                </button>
+
+            </section>
+
+        </section>
+
+
+        <!-- TELA FINAL -->
+
+        <section id="tela-final" class="tela hidden">
+
+            <div class="final-card">
+
+                <div class="trophy">🏆</div>
+
+                <h2>🎀 Quiz Finalizado! 🎀</h2>
+
+                <p id="resultado-final"></p>
+
+                <div class="score-box">
+                    <span>💰 Seu prêmio</span>
+                    <strong id="premio-final">R$ 0</strong>
+                </div>
+
+                <div class="final-buttons">
+
+                    <button id="jogar-novamente" class="main-button">
+                        💗 Jogar Novamente
+                    </button>
+
+                    <button id="mostrar-ranking-final" class="secondary-button">
+                        🏆 Ver Ranking
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- RANKING -->
+
+        <section id="tela-ranking" class="tela hidden">
+
+            <div class="ranking-card">
+
+                <h2>🏆 Ranking dos Milionários 🏆</h2>
+
+                <p class="ranking-subtitle">
+                    ✨ Quem conseguiu chegar mais longe? ✨
+                </p>
+
+                <div id="ranking-lista"></div>
+
+                <button id="voltar-ranking" class="secondary-button">
+                    💗 Voltar
+                </button>
+
+                <button id="limpar-ranking" class="clear-button">
+                    🗑️ Limpar Ranking
+                </button>
+
+            </div>
+
+        </section>
+
+        <footer>
+            Made with ♡ 🎀 ✨
+        </footer>
+
+    </main>
+
+    <div id="confetes"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
